@@ -9,7 +9,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 def fetch_poster(movie_id):
 
     API_KEY = st.secrets["TMDB_API_KEY"]
-    url = "https://api.themoviedb.org/3/movie/{}?api_key={API_KEY}".format(movie_id)
+    url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key={API_KEY}&language=en-US"
 
     response = requests.get(url)
     data = response.json()
@@ -71,3 +71,4 @@ if st.button('Recommend'):
     with col5:
         st.text(names[4])
         st.image(posters[4])
+
